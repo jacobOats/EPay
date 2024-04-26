@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html style="font-family: verdana, arial">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <title>Epay Payment Info</title>
+        <script>
+            if (!localStorage.getItem('user')) {
+                // Redirect to the login page if the user is not logged in
+                window.location.href = "signin.html";
+            }
+        </script>
+    </head>
+    <body>
+        <h1 style="text-align: center;"><span style="color: red">E</span><span style="color: blue">p</span><span style="color: rgb(206, 206, 3)">a</span><span style="color: rgb(1, 195, 1)">y</span></h1>
+        <div class="searchbar">
+            <form>
+                <input type="text" placeholder="Search for anything" id="search">
+                <button id="searchbtn" type="button" onclick="searchData()">Search</button>
+            </form>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="createpost.html">Create New Post</a></li>
+                <li><a href="payment.html">Add Payment</a></li>
+                <script>
+                   if (localStorage.getItem('user')) {
+                      document.write('<li><button onclick="logout()">Logout</button></li>');
+                   } else {
+                      document.write('<li><a href="signin.html">Sign In</a></li>');
+                      document.write('<li><a href="createaccount.html">Create Account</a></li>');
+                   }
+                </script>
+            </ul>
+        </nav>
+        <form id="pay">
+            <h3>Payment Info</h3>
+            <label for="fName">First Name:</label>
+            <input type="text" id="fName" placeholder="John"><br>
+            <label for="lName">Last Name:</label>
+            <input type="text" id="lName" placeholder="Doe"><br>
+            <label for="payment">Payment</label>
+            <select id="payment">
+                <option value="visa">Visa</option>
+                <option value="mastercard">Mastercard</option>
+                <option value="discover">Discover</option>
+                <option value="amex">American Express</option>
+            </select><br>
+            <label for="cardNum">Card Number:</label>
+            <input type="text" id="cardNum"><br>
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv"><br>
+            <input id="reset" type="reset">
+            <input id="submit" type="submit" onclick = "addPayment()">
+        </form>
+        <div id="paymentResult"></div>
+        <script src="displayitem.js"></script>
+        <script src = "payment.js"></script>
+        <script src="index.js"></script>
+    </body>
+    <style>
+        #pay{
+            margin: 0px;
+            padding: 0px;
+            padding-top:20px;
+            padding-bottom: 120px;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            width:400px;
+            height: 100px;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 10px;
+        }
+        h3{
+            font-size: 25px;
+            margin-top: 3px;
+            margin-bottom: 10px;
+        }
+        #email{
+            font-size:15px;
+            margin-top:5px;
+        }
+        #payment{
+            margin-top:5px;
+            font-size:15px;
+        }
+        #cardNum{
+            margin-top:5px;
+            font-size:15px;
+        }
+        #cvv{
+            margin-top:5px;
+            font-size:15px;
+        }
+        #fname{
+            margin-top:5px;
+            font-size:15px;
+        }
+        #lname{
+            margin-top:5px;
+            font-size:15px;
+        }
+        #reset{
+            margin-top:5px;
+        }
+        #submit{
+            margin-top:5px;
+        }
+    </style>
+     
+</html>

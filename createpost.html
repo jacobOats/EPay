@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Epay Create Post</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            #createpost label, input{
+                margin-bottom:6px;
+            }
+            #createpost #description{
+                padding-bottom:40px;
+            }
+        </style>
+    </head>
+    <body>
+    <script>
+        if (!localStorage.getItem('user')) {
+            // Redirect to the login page if the user is not logged in
+            window.location.href = "signin.html";
+        }
+        function logout() {
+            // Clear the user from localStorage and redirect to the login page
+            localStorage.removeItem('user');
+            window.location.href = "signin.html";
+        }
+    </script>
+        <h1><span style="color: red">E</span><span style="color: blue">p</span><span style="color: rgb(206, 206, 3)">a</span><span style="color: rgb(1, 195, 1)">y</span></h1>
+        <div class="searchbar">
+            <form>
+                <input type="text" id="searchText" placeholder="Search for anything">
+                <button type= "button" id="searchbtn" onclick = "searchB()">Search</button>
+            </form>
+        </div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="createpost.html">Create New Post</a></li>
+            <li><a href="payment.html">Add Payment</a></li>
+            <li><button onclick="logout()">Logout</button></li>
+        </ul>
+    </nav>
+       <form id="createpost" enctype="multipart/form-data">
+            <h3>Create Post</h3>
+            <label for="itemname">Item Name:</label>
+            <input type="text" id="itemname"><br>
+            <label for="price">Price:</label>
+            <input type="text" id="price"><br>
+            <label for="description">Description:</label>
+            <input type="text" id="description"><br>
+            <label for="imageupload" id="image">Image:</label>
+            <input type="file" accept = "image/*" id="imageupload"><br>
+            <input id="submit" type="submit" onclick = "createPost()"></button>
+        </form>
+        <div id="createPostResult"></div>
+        <script src = "createPost.js"></script>
+        <script src = "index.js"></script>
+    </body>
+</html>
